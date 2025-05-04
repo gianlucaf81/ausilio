@@ -17,7 +17,8 @@ L'ip sarà di tipo 192.168.1.123:5000
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_it_v0.1.sh)"
 ```
-Tieni presente 
+
+
 
 ## 🇬🇧 Description (English)
 Script for creating a virtual Synology NAS.
