@@ -33,4 +33,7 @@ The IP address will typically look like 192.168.1.123:5000.
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_en_v0.1.sh)"
+```
+
+![https://github.com/747cff37-0d36-4a07-ac9d-0ec23c28c56e](https://github.com/gianlucaf81/ausilio/blob/11a12d4eb3352cb86e4b1b60803fe4df2eb0549b/ausilio_it.gif)
 
