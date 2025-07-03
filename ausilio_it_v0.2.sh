@@ -321,7 +321,7 @@ for i in {1..5}; do
 done
 
 # Ora puoi eseguire qm set in sicurezza
-qm set "$VMID" --efidisk0 local:vm-${VMID}-efi,efitype=4m,format=qcow2
+qm set "$VMID" --efidisk0 local-lvm:4,efitype=4m,format=raw
 
 
 # Aggiunta del dispositivo PCI passthrough se selezionato
