@@ -380,7 +380,7 @@ ZIP_NAME="$(basename "$URL_DOWNLOAD")"
     
     echo "95"
     echo "# Configurazione disco come IDE0..."
-    if ! qm set "$VMID" --sata0 "local-lvm:vm-${VMID}-disk-0,cache=writeback"; then
+    if ! qm set "$VMID" --sata0 "local-lvm:vm-${VMID}-disk-1,cache=writeback"; then
         echo "100"
         exit 1
     fi
