@@ -312,7 +312,18 @@ if ! qm create "$VMID" \
     exit 1
 fi
 
-qm set "$VMID" --efidisk0 local-lvm:128K
+# Attendi che il file .conf sia effettivamente scritto
+for i in {1..5}; do
+    if [[ -f "/etc/pve/qemu-server/${VMID}.conf" ]]; then
+        break
+    fi
+    sleep 1
+done
+
+# Ora puoi eseguire qm set in sicurezza
+qm set "$VMID" --efidisk0 local:vm-${VMID}-efi,efitype=4m,format=qcow2
+
+
 # Aggiunta del dispositivo PCI passthrough se selezionato
 if [[ "$ADD_PCI_DEVICE" == "true" && -n "$PCI_ID" ]]; then
     qm set "$VMID" --hostpci0 "$PCI_ID"
