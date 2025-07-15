@@ -2,7 +2,8 @@
 
 **VM per Arc Loader** (Redpill Loader personalizzato per DSM 7.x / Xpenology) **per Proxmox**   `community-scripts` / `tteck` style
 
-## 🇮🇹 Descrizione (Italiano)
+##  ![🇮🇹](https://flagcdn.com/24x18/it.png) 🇮🇹 Descrizione (Italiano)
+
 Script per la creazione di un NAS Synology virtuale.
 Questo script crea automaticamente una macchina virtuale su Proxmox, scaricando l’ISO del progetto Arc Loader da github.com/AuxXxilium/arc.
 Chiede all'utente che dischi fisici assegnare alla VM nei quali verranno scritti i dati utente e la configurazione del NAS.
@@ -23,8 +24,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_it_v0.2.sh)"
 ```
 
+---
+---
 
-## 🇬🇧 Description (English)
+## ![🇮🇹](https://flagcdn.com/24x18/gb.png) 🇬🇧 Description (English) 
 Script for creating a virtual Synology NAS.
 This script automatically creates a virtual machine on Proxmox by downloading the ISO from the Arc Loader project at github.com/AuxXxilium/arc.
 It prompts the user to assign physical disks to the VM, which will be used to store user data and NAS configuration.
@@ -36,8 +39,13 @@ The IP address will typically look like 192.168.1.123:5000.
 
 📥 **To run the script in English**, use this command from the main Proxmox shell:
 
+**Version 0.1**
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_en_v0.1.sh)"
+```
+**Version 0.2** Includes support for SATA controller passthrough.
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_en_v0.2.sh)"
 ```
 
 ![](https://github.com/gianlucaf81/ausilio/blob/d4b7211e7fd1f07bf15d09831dfe85e0a6192a45/media/ausilio_en.gif)
