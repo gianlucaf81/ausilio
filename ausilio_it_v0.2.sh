@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #=================================================
-# SCRIPT: Create empty VM on Proxmox + Download ARC ISO from https://github.com/AuxXxilium/arc
+# SCRIPT: Crea una VM vuota in Proxmox + Download ARC ISO from https://github.com/AuxXxilium/arc + assegna la iso come disco IDE
 # AUTHOR: Gianluca (gianlucaf81)
 # Version 0.2 - Aggiunta OVFM UEFI Bios - Aggiunta selezione scheda controller PCI
 #=================================================
 
-# Colors
+# Colori
 GREEN="\e[32m"
 RED="\e[31m"
 YELLOW="\e[33m"
@@ -34,32 +34,32 @@ TITLE="ARC VM Creator"
 check_dependencies() {
     # Controlla whiptail (per l'interfaccia)
     if ! command -v whiptail &>/dev/null; then
-        print_info "Installing whiptail..."
+        print_info "Installazione di whiptail..."
         if command -v apt &>/dev/null; then apt-get update -qq && apt-get install -y whiptail >/dev/null 2>&1
         elif command -v yum &>/dev/null; then yum install -y newt >/dev/null 2>&1
         elif command -v dnf &>/dev/null; then dnf install -y newt >/dev/null 2>&1
-        else print_error "Cannot install whiptail: no supported package manager found" && exit 1
+        else print_error "Impossibile installare whiptail: nessun gestore di pacchetti supportato trovato" && exit 1
         fi
-        command -v whiptail &>/dev/null || { print_error "Failed to install whiptail."; exit 1; }
+        command -v whiptail &>/dev/null || { print_error "Installazione di whiptail fallita."; exit 1; }
     fi
     
     # Controlla unzip
     if ! command -v unzip &>/dev/null; then
-        print_info "Installing unzip..."
+        print_info "Installazione unzip..."
         if command -v apt &>/dev/null; then apt-get update -qq && apt-get install -y unzip >/dev/null 2>&1
         elif command -v yum &>/dev/null; then yum install -y unzip >/dev/null 2>&1
         elif command -v dnf &>/dev/null; then dnf install -y unzip >/dev/null 2>&1
-        else print_error "Cannot install unzip: no supported package manager found" && exit 1
+        else print_error "Impossibile installare unzip: nessun gestore di pacchetti supportato trovato" && exit 1
         fi
-        command -v unzip &>/dev/null || { print_error "Failed to install unzip."; exit 1; }
+        command -v unzip &>/dev/null || { print_error "Installazione di unzip fallita."; exit 1; }
     fi
 }
 
 #=================================================
-# Cleanup
+# Pulizia
 #=================================================
 cleanup() {
-    echo -e "${YELLOW}Cleaning temp files...${RESET}"
+    echo -e "${YELLOW}Pulizia dei file temporanei...${RESET}"
     rm -rf "$ISO_STORAGE/$(basename "$URL_DOWNLOAD")" "$ISO_STORAGE/${URL_DOWNLOAD##*/%.zip}" 2>/dev/null
     exit 1
 }
@@ -167,7 +167,7 @@ ADD_PCI_DEVICE=false
 PCI_ID=""
 
 DISK_CTRL_CHOICE=$(whiptail --title "$TITLE" --menu \
-  "Vuoi aggiungere dischi fisici o un dispositivo PCI (es. controller SATA/SAS) alla VM?" 12 70 4 \
+  "Vuoi aggiungere dei dischi fisici o un dispositivo PCI (es. controller SATA/SAS) alla VM?" 12 70 4 \
   "DISCHI" "Aggiungi dischi fisici alla VM" \
   "PCI" "Aggiungi un dispositivo PCI (passthrough)" \
   "NESSUNO" "Non aggiungere nulla" \
