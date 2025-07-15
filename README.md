@@ -14,10 +14,14 @@ L'ip sarà di tipo 192.168.1.123:5000
 
 📥 **Per eseguire lo script in italiano**, usare questo comando nella shell principale di Proxmox:
 
+**Versione 0.1**
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_it_v0.1.sh)"
 ```
-
+**Versione 0.2** Include il supporto per il passthrough del controller sata.
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/gianlucaf81/ausilio/refs/heads/main/ausilio_it_v0.2.sh)"
+```
 
 
 ## 🇬🇧 Description (English)
